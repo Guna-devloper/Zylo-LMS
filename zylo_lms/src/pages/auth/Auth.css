@@ -1,0 +1,225 @@
+/* Global background */
+.auth-wrapper-3d {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #616060, #d5d5da, #f1f1f5); /* Dark tech-inspired gradient */
+}
+
+/* Card Container */
+.auth-card-3d {
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transform: perspective(1000px) rotateY(0deg);
+  background: white;
+}
+
+/* Left Side */
+.auth-left-3d {
+  flex: 1;
+  background: linear-gradient(rgba(8, 8, 8, 0.6), rgba(8, 8, 8, 0.6)),
+              url('../../Images/lms-bac8.png') center/cover no-repeat;
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 9%;
+}
+.auth-left-3d .text-zone{
+  margin-bottom: 12%;
+}
+.auth-left-3d .text-zone h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.illu-img{
+  margin-left: 10%;
+}
+
+.auth-left-3d .text-zone p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Right Side */
+.auth-right-3d {
+  flex: 1;
+  background: white;
+  padding: 55px 35px; /* Increased height by boosting vertical padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10%;
+}
+
+/* Input Fields */
+.auth-input {
+ width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Login Button */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: #0a0a0a;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+  background: #7f807f;
+}
+
+/* Signup Link */
+.signup-link {
+  margin-top: 20px; /* Slightly increased spacing */
+}
+
+.signup-link a {
+  color: #0c0c0c;
+  text-decoration:solid;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+/* Input styling for email & password fields */
+.auth-input {
+ width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-size: 15px;
+  font-weight: 500;
+}
+.custom-input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+/* Optional icons inside input (if needed) */
+/* For a better UI experience, you can use FontAwesome or Material Icons inside inputs if required */
+
+/* Social Divider */
+.connect-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.connect-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.connect-text {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.social-icon {
+  color: #333;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-icon.linkedin:hover {
+  color: #0077b5;
+}
+
+.social-icon.youtube:hover {
+  color: #ff0000;
+}
+
+.social-icon.instagram:hover {
+  color: #e1306c;
+}
+
+.social-icon.facebook:hover {
+  color: #3b5998;
+}
+
+.social-icon.twitter:hover {
+  color: #000;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 16px;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+.forgot-password-link {
+  font-size: 13px;
+  color: #2c2c2c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password-link:hover {
+  color: #007bff;
+}
+@media (max-width: 768px) {
+  .auth-card-3d {
+    flex-direction: column;
+    max-width: 80%;
+  }
+
+  .auth-left-3d {
+    display: none;
+  }
+
+  .auth-right-3d {
+    border-left: none;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,70 @@
+/* Reset + Fonts */
+.subjects-wrapper {
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
+  text-align: center;
+}
+
+.subjects-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.subjects-subheading {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.subjects-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  padding: 0 10px;
+}
+
+/* Card */
+.subject-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.subject-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.subject-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease;
+}
+
+.subject-card:hover .subject-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.subject-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.subject-description {
+  font-size: 0.95rem;
+  color: #4b5563;
+}

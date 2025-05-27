@@ -5,37 +5,46 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children, role }) => {
-  const [userRole, setUserRole] = useState(null);
+  const [userRole, setUserRole] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log("User:", user);
-  
       if (user) {
-        const userRef = doc(db, 'users', user.uid);
-        const userSnap = await getDoc(userRef);
-        
-        if (userSnap.exists()) {
-          console.log("User Role:", userSnap.data().role);
-          setUserRole(userSnap.data().role);
-        } else {
-          console.log("No such user in Firestore!");
+        setIsAuthenticated(true);
+
+        try {
+          const userRef = doc(db, 'users', user.uid);
+          const userSnap = await getDoc(userRef);
+
+          if (userSnap.exists()) {
+            const data = userSnap.data();
+            setUserRole(data.role);
+          } else {
+            console.warn("User data not found in Firestore.");
+            setUserRole(null); // explicitly set to null for invalid user
+          }
+        } catch (error) {
+          console.error("Error fetching user role:", error.message);
+          setUserRole(null);
         }
       } else {
-        console.log("No user logged in");
+        setIsAuthenticated(false);
+        setUserRole(null);
       }
-  
+
       setLoading(false);
     });
-  
+
     return () => unsubscribe();
   }, []);
-  
 
   if (loading) return <div>Loading...</div>;
 
-  if (userRole !== role) return <Navigate to="/" />;
+  if (!isAuthenticated) return <Navigate to="/login" />;
+
+  if (userRole !== role) return <Navigate to="/unauthorized" />;
 
   return children;
 };
